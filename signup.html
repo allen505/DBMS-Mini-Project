@@ -4,37 +4,44 @@
 	<title>
 		Sign up
 	</title>
-	<!--<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>-->
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+	<link rel="stylesheet" type="text/css" href="css\stylesheet-signup.css">
 	<script src="validate.js"></script>
 </head>
 <body>
-	<!--<img src="sjbitlogo.jpg" align="left">-->
-	<!--<div class="links-div">-->
-	<!--<ul class="links">-->
-		<!--<li><a href="home.html">HOME</a></li>-->
-		<!--<li><a href="aboutus.html">About Us</a></li>-->
-	<!--</ul>-->
-<!--</div>-->
+	<img src="sjbitlogo.jpg" align="left">
+	<div class="links-div">
+	<ul class="links">
+		<li><a href="home.html">HOME</a></li>
+		<li><a href="aboutus.html">About Us</a></li>
+	</ul>
+</div>
 <div class="a" align="center">
 	<h1 align = "center">SIGN UP</h1>
-	<div id="input">
-    <input id="op1" type="text" placeholder="Enter first element" onfocus="elemFocused(this)" onblur="elemBlurred(this)">
-    <input id="op2" type="text" placeholder="Enter the second element" onfocus="elemFocused(this)" onblur="elemBlurred(this)">
+       <form method="get">
+       	Name: &nbsp&nbsp&nbsp&nbsp  
+       	<input type="text" name="Name" id="name" onblur="validatename()" class="input"><br/><br/><br/>
+       	Username: &nbsp&nbsp&nbsp&nbsp   
+		  <input type="Username" name="Username" placeholder="Username" class="input" id="username"><br/><br/><br/>
+		 E-mail Id: &nbsp&nbsp&nbsp&nbsp
+		 <input type="Username" name="Username" placeholder="example@examplemail.com" class="input" id="email"><br/><br/><br/>
+		Password: &nbsp&nbsp&nbsp&nbsp 
+		  <input type="Password" name="Password" placeholder="Password" class="input" id="password1"><br/><br/><br/>
+		  Retype Password: &nbsp&nbsp
+		  <input type="Password" name="Password" placeholder=" Retype Password" class="input" id="password2" onblur="validatepass()"><br/><br/><br/>
+		  Address: &nbsp &nbsp &nbsp
+		  <input type="Address" name="Address" class="inputA" height="50px"><br><br><br>
+		  Number: &nbsp &nbsp &nbsp
+		  <input type="text" name="number" class="input" height="50px"><br><br><br>
+		  Gender:&nbsp&nbsp&nbsp&nbsp&nbsp&nbspMale: 
+		  <input type="radio" name="Gender" value="Male">&nbsp&nbsp&nbsp
+		  Female: 
+		  <input type="radio" name="Gender" value="Female">&nbsp&nbsp&nbsp<br><br><br>
 
-    </div>
-    <div id="operators">
-        <input id="plus" type="button" value="Add" onclick="calculator('+')" onfocus="elemFocused(this)" onblur="elemBlurred(this)">
-        <input id="minus" type="button" value="Subtract" onclick="calculator('-')" onfocus="elemFocused(this)" onblur="elemBlurred(this)">
-        <input id="times" type="button" value="Multiply" onclick="calculator('*')" onfocus="elemFocused(this)" onblur="elemBlurred(this)">
-        <input id="divide" type="button" value="Divide" onclick="calculator('/')" onfocus="elemFocused(this)" onblur="elemBlurred(this)">
-    </div>
-    <div id="result">
-
-    </div>
-    <div id="reset">
-        <input id="resetButton" type="button" value="RESET" onclick="resetFunction()">
-    </div>
+		  <button class="input">
+		  	Submit
+		  </button>
+	</form>
 </div>
 
 </body>
