@@ -8,7 +8,7 @@
 <nav class="navbar navbar-default">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a href="#" class="navbar-brand">Police Database</a>
+                <a href="Homepage.html" class="navbar-brand">Police Database</a>
             </div>
 
             <div>
@@ -24,41 +24,41 @@
                 </ul>
 
                 <ul class="nav navbar-nav">
-                    <li><a href="#">About</a></li>
+                    <li><a href="About.html">About</a></li>
                 </ul>
 
                 <ul class="nav navbar-nav">
-                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="Contact.html">Contact Us</a></li>
                 </ul>
 
             </div>
         </div>
     </nav>
-    <div class="Registration">
-    	<div class="a" align="center">
-	<h1 align = "center" style="color: gray">SIGN UP</h1>
-       <form method="get" style="float: left;width: 100%;">
-       	<label for="uid">Name: &nbsp&nbsp&nbsp&nbsp</label>  
-       	<input type="text" name="Name" id="name" onblur="validatename()" class="input"><br/><br/><br/>
-       	<label for="uid">Username: &nbsp&nbsp&nbsp&nbsp</label>   
-		  <input type="Username" name="Username" placeholder="Username" class="input" id="username"><br/><br/><br/>
-		<label for="uid">Password: &nbsp&nbsp&nbsp&nbsp</label> 
-		  <input type="Password" name="Password" placeholder="Password" class="input" id="password1"><br/><br/><br/>
-		<label for="uid">Station name: &nbsp&nbsp&nbsp&nbsp</label>
-		  <input type="Address" name="Address" class="inputA" height="50px"><br><br><br>
-		<label for="uid">Cop ID: &nbsp&nbsp&nbsp&nbsp</label>
-		  <input type="text" name="number" class="input" height="50px"><br><br><br>
-		<label for="uid">Gender:&nbsp&nbsp&nbsp&nbsp</label>
-			<label for="uid">Male: </label>
-		  <input type="radio" name="Gender" value="Male">&nbsp&nbsp&nbsp
-		<label for="uid">Female: </label>
-		  <input type="radio" name="Gender" value="Female">&nbsp&nbsp&nbsp<br><br><br>
+    <div class="col-xs-12" style="height:60px;"></div>
 
-		  <button class="btn btn-default">
-		  	Submit
-		  </button>
-	</form>
-</div>
+    <div class="userForm center-block">
+      <form action="">
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="name" placeholder="Enter Name" name="uid">
+            <br>
+            <label for="uid">User ID</label>
+            <input type="text" class="form-control" id="uid" placeholder="Enter User ID" name="uid">
+            <br>
+		    <label for="uid">Password</label>
+            <input type="password" class="form-control" id="password" placeholder="Enter Password" name="password">
+            <br>
+            <label for="Station">Station</label>
+            <input type="text" class="form-control" id="station" placeholder="Enter Station" name="uid">
+            <br>
+            <label>Gender</label><br>
+            <label class="radio-inline"><input type="radio" id="gender1"name="uid">Male</label>
+            <label class="radio-inline"><input type="radio" id="gender2"name="uid">Female</label>
+            <label class="radio-inline"><input type="radio" id="gender3"name="uid">Other</label>
+            <br>
+        </div>
+        <button type="submit" class="btn btn-default" onsubmit="">Submit</button>
+      </form>
     </div>
 </body>
 </html>
