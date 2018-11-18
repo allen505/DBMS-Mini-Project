@@ -18,6 +18,14 @@ html{font-family:sans-serif;-webkit-text-size-adjust:100%;-ms-text-size-adjust:1
 table td{
 	padding: 10px;
 }
+a{
+	text-decoration: none;
+	color: black;
+}
+a:hover{
+	text-decoration: none;
+	color: black;
+}
 .crime_input
 {
 	font-size: 16px;
