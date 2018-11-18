@@ -162,7 +162,7 @@ This page comes in when the cop registration is successfull-->
     </nav>
 <div class="basic">
 	<div class="crime_input">
-	<center><form action="" class="crime_form">
+	<center><form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method = "POST" class="crime_form">
 	<table class="crime" align="center" >
 		<tr>
 			<td><label for="uid">Vehicle number</label></td>
