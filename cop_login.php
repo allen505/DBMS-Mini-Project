@@ -84,7 +84,7 @@
                 }//wrong pass
                 else
                 {
-                    login(); //this redirects to dash after login
+                    echo "whadisupgaizmkbhdhere"; //this redirects to dash after login
                 }
         }//if id does exist
         else {
