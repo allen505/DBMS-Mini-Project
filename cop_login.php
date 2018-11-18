@@ -84,7 +84,7 @@
                 }//wrong pass
                 else
                 {
-                    echo "whadisupgaizmkbhdhere"; //this redirects to dash after login
+                    header("Crimeinput.html"); //give proper address to whatever's in quotes.
                 }
         }//if id does exist
         else {
