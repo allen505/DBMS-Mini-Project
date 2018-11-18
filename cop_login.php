@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Cop sign in</title>
+    <title>Cop sign in</title>
     <link rel="stylesheet" type="text/css" href="main.css">
     <style type="text/css">
         .error{ color: red; }
@@ -71,10 +71,11 @@
         }//this rmoves trailing spaces and makes it an html element so you can't rip it off don't know why stripslashes but meh
 
         function chk_data($login, $pass){
-            $eval = "SELECT /* columns which rep id and password*/ FROM /*table where it's saved*/ WHERE /* Col referring id*/ == '.$login.' "
+            $eval = "SELECT `/* columns which rep id and password*/` FROM `/*table where it's saved*/ WHERE /* Col referring id*/` == '".$login."'";
             $eval_res= mysqli_query($conn, $eval);//line 74 is what i am worried about. hopefuly how you pass a variable is same in both object or procedural
-			$row = mysqli_fetch_assoc($eval_res);
-            if (mysqli_num_rows($eval_res) > 0) {
+            
+            if ($eval_res= mysqli_query($conn, $eval);) {
+                $row = mysqli_fetch_assoc($eval_res);
                 if(!($row["#password column"] == $pass)){
                     $boo = false;
                     $pswderr = "Incorrect Password or Username";
@@ -133,7 +134,7 @@
             <input type="text" class="form-control" id="uid" placeholder="Enter User ID" name="uid">
             <span class="error">* <?php echo $uiderr; ?> </span>
             <br>
-		    <label for="uid">Password</label>
+            <label for="uid">Password</label>
             <input type="password" class="form-control" id="password" placeholder="Enter Password" name="password">
             <span class="error">* <?php echo $pswderr;?></span>
         </div>
