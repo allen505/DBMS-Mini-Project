@@ -92,7 +92,7 @@ This page comes in when the cop registration is successfull-->
             $data = htmlspecialchars($data);
             return $data;
 
-        }//this rmoves trailing spaces and makes it an html element so you can't rip it off don't know why stripslashes but meh
+        }//gives data a nice haircut
 
 		 function chk_vno($vehicle)
 		{
