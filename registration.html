@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Registration</title>
+	<link rel="stylesheet" type="text/css" href="main.css">
+</head>
+<body>
+<nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a href="#" class="navbar-brand">Police Database</a>
+            </div>
+
+            <div>
+                <ul class="nav navbar-nav">
+                    <li><a href="Homepage.html">User Login</a></li>
+                </ul>
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Admin Log in</a></li>
+                </ul>
+
+                <ul class="nav navbar-nav">
+                    <li><a href="CopLogin.html">Cop Login</a></li>
+                </ul>
+
+                <ul class="nav navbar-nav">
+                    <li><a href="#">About</a></li>
+                </ul>
+
+                <ul class="nav navbar-nav">
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+    <div class="Registration">
+    	<div class="a" align="center">
+	<h1 align = "center" style="color: gray">SIGN UP</h1>
+       <form method="get" style="float: left;width: 100%;">
+       	<label for="uid">Name: &nbsp&nbsp&nbsp&nbsp</label>  
+       	<input type="text" name="Name" id="name" onblur="validatename()" class="input"><br/><br/><br/>
+       	<label for="uid">Username: &nbsp&nbsp&nbsp&nbsp</label>   
+		  <input type="Username" name="Username" placeholder="Username" class="input" id="username"><br/><br/><br/>
+		<label for="uid">Password: &nbsp&nbsp&nbsp&nbsp</label> 
+		  <input type="Password" name="Password" placeholder="Password" class="input" id="password1"><br/><br/><br/>
+		<label for="uid">Station name: &nbsp&nbsp&nbsp&nbsp</label>
+		  <input type="Address" name="Address" class="inputA" height="50px"><br><br><br>
+		<label for="uid">Cop ID: &nbsp&nbsp&nbsp&nbsp</label>
+		  <input type="text" name="number" class="input" height="50px"><br><br><br>
+		<label for="uid">Gender:&nbsp&nbsp&nbsp&nbsp</label>
+			<label for="uid">Male: </label>
+		  <input type="radio" name="Gender" value="Male">&nbsp&nbsp&nbsp
+		<label for="uid">Female: </label>
+		  <input type="radio" name="Gender" value="Female">&nbsp&nbsp&nbsp<br><br><br>
+
+		  <button class="btn btn-default">
+		  	Submit
+		  </button>
+	</form>
+</div>
+    </div>
+</body>
+</html>

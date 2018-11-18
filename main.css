@@ -21,8 +21,8 @@ table td{
 .crime_input
 {
 	font-size: 16px;
-	color: black;
 	font-style: bold;
+	color: black;
 }
 .basic
 {
@@ -37,4 +37,13 @@ table td{
 
 .table{
 	font-size: 15px;
+}
+
+.a {
+	padding: 10px;  
+	border-radius: 20px; 
+	width: 40%;
+	margin:50px 600px 100px 400px;  
+	background-color: #ffffff; 
+	float: left;
 }
