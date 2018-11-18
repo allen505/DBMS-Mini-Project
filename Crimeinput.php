@@ -13,6 +13,18 @@ This page comes in when the cop registration is successfull-->
 <body>
 
 	<?php
+		$servername = "127.0.0.1";
+        $username = "root";
+        $password = "";
+
+        // Create connection
+        $conn = mysqli_connect($servername, $username, $password);
+
+        // Check connection
+        if (!$conn) {
+            die("Connection failed: " . mysqli_connect_error());
+        }
+        echo "Connected successfully";
 
 		$vnoerr = $placeerr = $offerr = $finerr = "";
 		$vno = $place = $off = $fin = "";
@@ -73,7 +85,8 @@ This page comes in when the cop registration is successfull-->
             if ($boo) {
             	$boo = chk_vno($vno);
             	if ($boo) {
-            		echo("All correct");//send_data();//will send data to form if all is correct
+            		echo("All correct");
+            		send_data();//will send data to form if all is correct
             	}
             	else
             	{
@@ -92,7 +105,7 @@ This page comes in when the cop registration is successfull-->
             $data = htmlspecialchars($data);
             return $data;
 
-        }//gives data a nice haircut
+        }//this rmoves trailing spaces and makes it an html element so you can't rip it off don't know why stripslashes but meh
 
 		 function chk_vno($vehicle)
 		{
@@ -109,15 +122,25 @@ This page comes in when the cop registration is successfull-->
 
 		}
 
-		/*function send_data()
+		function send_data()
 		{
+			$qury = "UPDATE /*table_name*/ SET /*column name for vehile number*/ = $GLOBALS["vno"], /*column name for offence*/ = $GLOBALS["off"], /*column name for Place*/ = $GLOBALS["place"], /*column name for Fine*/ = $GLOBALS["fin"]";
+			if (mysqli_query($GLOBALS["conn"]}, $qury))
+			 {
+			    echo "Record updated successfully";
+			 }
+			 else 
+			 {
+			    echo "Error updating record: " . mysqli_error($GLOBALS["conn"]);
+			 }
 
-		}*/
+		}//end of send data
 
 
 
 
 
+	mysqli_close($conn);
 	?>
 
  <nav class="navbar navbar-default">
