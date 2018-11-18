@@ -1,25 +1,25 @@
+<!-- This will have the option for the cop to sign in and a button if the cop wants to register himself-->
 <!DOCTYPE html>
 <html>
 <head>
-	<title>
-		Sign up
-	</title>
-	<link rel="stylesheet" type="text/css" href="main.css">
+	<title>Cop sign in</title>
+    <link rel="stylesheet" type="text/css" href="main.css">
 </head>
+<body>
 <body>
     <nav class="navbar navbar-default">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a href="#" class="navbar-brand">Police Database</a>
+                <a href="Homepage.html" class="navbar-brand">Police Database</a>
             </div>
 
             <div>
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">User Login</a></li>
+                    <li><a href="Homepage.html">User Login</a></li>
                 </ul>
 
                 <ul class="nav navbar-nav">
-                    <li><a href="CopLogin.html">Cop Login</a></li>
+                    <li class="active"><a href="CopLogin.html">Cop Login</a></li>
                 </ul>
 
                 <ul class="nav navbar-nav">
@@ -39,12 +39,16 @@
     <div class="userForm center-block">
       <form action="">
         <div class="form-group">
-          <label for="vhno">Vehicle Number</label>
-          <input type="text" class="form-control" id="vhno" placeholder="Enter Vehicle Number" name="vhno">
+            <label for="uid">User ID</label>
+            <input type="text" class="form-control" id="uid" placeholder="Enter User ID" name="uid">
+            <br>
+		    <label for="uid">Password</label>
+            <input type="password" class="form-control" id="password" placeholder="Enter Password" name="password">
         </div>
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
     </div>
 
+</body>
 </body>
 </html>
