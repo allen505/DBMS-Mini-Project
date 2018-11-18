@@ -30,7 +30,7 @@
         //not null eval
         $uiderr=$pswderr="";
         $uid=$pswd="";
-        $boo= true;
+        $boo= true;//this is our flag to make sure login is legit
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if(empty($_POST["uid"])){
                 $uiderr="Please enter a valid User ID";
