@@ -71,11 +71,11 @@
         }//this rmoves trailing spaces and makes it an html element so you can't rip it off don't know why stripslashes but meh
 
         function chk_data($login, $pass){
-            $eval = "SELECT /* columns which rep id and password*/ FROM /*table where it's saved*/ WHERE /* Col referring id*/ == '$login' "
-            $eval_res= mysqli_query($conn, $eval);
-
+            $eval = "SELECT /* columns which rep id and password*/ FROM /*table where it's saved*/ WHERE /* Col referring id*/ == '.$login.' "
+            $eval_res= mysqli_query($conn, $eval);//line 74 is what i am worried about. hopefuly how you pass a variable is same in both object or procedural
+			$row = mysqli_fetch_assoc($eval_res);
             if (mysqli_num_rows($eval_res) > 0) {
-                if(!($eval["#password column"] == $pass)){
+                if(!($row["#password column"] == $pass)){
                     $boo = false;
                     $pswderr = "Incorrect Password or Username";
                     $uiderr = "Please retype correct Information";
