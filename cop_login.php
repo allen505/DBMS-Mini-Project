@@ -56,7 +56,7 @@
             }
             if($boo)
             {
-                snddta($uid,$pswd);
+                chk_data($uid,$pswd);
             }
 
         }
@@ -69,6 +69,32 @@
             return $data;
 
         }//this rmoves trailing spaces and makes it an html element so you can't rip it off don't know why stripslashes but meh
+
+        function chk_data($login, $pass){
+            $eval = "SELECT /* columns which rep id and password*/ FROM /*table where it's saved*/ WHERE /* Col referring id*/ == '$login' "
+            $eval_res= mysqli_query($conn, $eval);
+
+            if (mysqli_num_rows($eval_res) > 0) {
+                if(!($eval["#password column"] == $pass)){
+                    $boo = false;
+                    $pswderr = "Incorrect Password or Username";
+                    $uiderr = "Please retype correct Information";
+
+                }//wrong pass
+                else
+                {
+                    login(); //this redirects to dash after login
+                }
+        }//if id does exist
+        else {
+                    $boo = false;
+                    $pswderr = "Incorrect Password or Username";
+                    $uiderr = "Please retype correct Information to Sign in";
+        
+        }
+    }//chk_data ends here
+
+       mysqli_close($conn);
         ?>
 
     <nav class="navbar navbar-default">
