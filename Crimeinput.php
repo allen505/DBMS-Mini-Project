@@ -155,11 +155,14 @@ This page comes in when the cop registration is successfull-->
                 </ul>
 
             </div>
+	 <div class="nav navbar-nav" style="float: right">
+            	<a href="Homepage.html"><button class="btn btn-default">Log out</button></a>
+            </div>
         </div>
     </nav>
 <div class="basic">
 	<div class="crime_input">
-	<center><form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" class="crime_form" method="POST">
+	<center><form action="" class="crime_form">
 	<table class="crime" align="center" >
 		<tr>
 			<td><label for="uid">Vehicle number</label></td>
@@ -175,7 +178,8 @@ This page comes in when the cop registration is successfull-->
 			<td><input type="text" name="offence" placeholder="Offence"></td>
 			<td><input type="number" name="fine" placeholder="Fine"></td>
 		</tr>
-		<tr id="input">
+		
+		<tr id="err">
 			<td><span class="error">* <?php echo $vnoerr; ?> </span></td>
 			<td><span class="error">* <?php echo $placeerr; ?> </span></td>
 			<td><span class="error">* <?php echo $offerr; ?> </span></td>
