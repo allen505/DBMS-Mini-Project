@@ -125,7 +125,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <head>
     <meta charset="UTF-8">
     <title>Sign Up</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
+    <link rel="stylesheet" href="main.css">
     <style type="text/css">
         body{ font: 14px sans-serif; }
         .wrapper{ width: 350px; padding: 20px; }
@@ -148,8 +148,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 <a href="logout.php" class="btn btn-default">Log out</a>
             </div>
         </div>
-    </nav>
-    <div class="wrapper">
+    </nav><div class="col-md-4"></div>
+    <div class="col-md-4 wrapper"><center>
         <h2>ADD A NEW COP</h2>
         <p>Please fill this form to add a new cop.</p>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
@@ -183,7 +183,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 <input type="reset" class="btn btn-default" value="Reset">
             </div>
         </form>
-    </div>    
+        </center></div>
+     <div class="col-md-4"></div>
 </body>
 </html>
 <!-- Final-->

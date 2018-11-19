@@ -179,13 +179,12 @@ This page comes in when the cop registration is successfull-->
 
             <div>
                 <ul class="nav navbar-nav" style="font-size: 15px">
-                    <li><a>Cop logged in</a></li>
+                    <li class="active"><a href="#">Dashboard</a></li>
                 </ul>
-
+                <ul class="nav navbar-nav navbar-right" style="font-size: 15px">
+                    <li><a href="logout.php" >Log out</a></li>
+                </ul>
             </div>
-			<div class="nav navbar-nav" style="float: right">
-                <a href="logout.php" class="btn btn-default">Log out</a>
-            </div>	 
         </div>
     </nav>
 <div class="basic">

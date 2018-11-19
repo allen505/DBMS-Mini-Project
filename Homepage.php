@@ -86,19 +86,21 @@ session_start();
         </div>
     </nav>
 
-    <div class="col-xs-12" style="height:60px;"></div>
-
-    <div class="userForm center-block">
+    <div class="col-xs-12 bg-light" style="height:60px;"></div>
+    <div class="col-md-4"></div>
+    <center>
+    <div class="col-md-4 userForm center-block">
       <form action= "<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method = "POST">
         <div class="form-group">
-          <label for="vhno">Vehicle Number</label>
+
+          <label for="vhno">Vehicle Number</label><br><br>
           <input type="text" class="form-control" id="vhno" placeholder="Enter Vehicle Number" name="vhno">
           <span class="error"> <?php echo $vhnerr; ?> </span>
         </div>
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
-    </div>
-
+    </div></center>
+    <div class="col-md-4"></div>
 </body>
 </html>
 <!--Final-->
