@@ -10,29 +10,23 @@ session_start();
 </head>
 <body>
 
-<?php
-	function logoff()
-	{
-		session_destroy();
-		header('Location: Homepage.php');
-	}
-
-?>
 <nav class="navbar navbar-default">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a href="Homepage.html" class="navbar-brand">Police Database</a>
+                <a href="homepage.php" class="navbar-brand">Police Database</a>
             </div>
 
             <div>
                 <ul class="nav navbar-nav" style="font-size: 15px">
                     <li><a>Civilian viewing</a></li>
                 </ul>
-
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="Homepage.html">Log out</a></li>
+                </ul>
             </div>
         </div>
-    </nav>
-   <div class="view">
+ </nav>
+<div class="view">
 		<table align="center" class="table">
 			<tr>
 				<td><label for="uid">Vehicle number</label></td>
@@ -44,25 +38,33 @@ session_start();
 					<?php
 
 						$servername = "localhost";
-						$username = "username";
-						$password = "password";
-						$dbname = "myDB";
+						$username = "root";
+						$password = "";
+						$dbname = "demo";
 						$gadno = $_SESSION["vhn"];
+						//echo $gadno;
+						$cons= "";
 
 						// Create connection
 						$conn = mysqli_connect($servername, $username, $password, $dbname);
 						// Check connection
-						if (!$conn) {
-						die("Connection failed: " . mysqli_connect_error());
+						if ($conn) {
+							$cons= "Connection successful";
+						
+						}
+						else{
+							die("Connection failed: " . mysqli_connect_error());
 						}
 
-						$sql = "SELECT /*enter the rows you need*/ FROM /*table*/ WHERE/* column for vehicle number*/=". $gadno ;
+						$sql = "SELECT offence, paid, vehicleno, place, id FROM useroffence WHERE vehicleno = '$gadno'" ;
 						$result = mysqli_query($conn, $sql);
+						//echo $sql;
 
-						if (mysqli_num_rows($result) > 0) {
+						if (mysqli_num_rows($result)>0) {
 						// output data of each row
 						while($row = mysqli_fetch_assoc($result)) {
-						    echo "<tr><td>". $row["/*vehicle no row*/"]."</td><td>". $row["#placeofoffencerow"]."</td><td>". $row["#offence"]."</td><td>". $["#refid"]. "</td></tr>";
+						    echo "<tr><td>".$row["vehicleno"]."</td><td>".$row["place"]."</td><td>".$row["offence"]."</td><td>". $row["id"]."</td></tr>";
+						    //echo $row["vehicleno"];
 						}
 						} else {
 						echo "No Dues";
@@ -75,7 +77,8 @@ session_start();
 				</div>
 			
 		</table>
-		<center><button class="btn btn-default" action = "<?php echo htmlspecialchars(logoff());?>" >Log out</button></a></center>   	
-   </div>
+<!--		<center><a href="homepage.php"><button class="btn btn-default">Homepage</button></a></center>   	-->
+</div>
 </body>
 </html>
+<!-- Final-->

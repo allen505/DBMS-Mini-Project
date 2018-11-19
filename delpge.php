@@ -9,6 +9,7 @@
 	<link rel="stylesheet" type="text/css" href="main.css">
 </head>
 <body>
+
     <?php
         $vhnerr = "";
         $updt="";
@@ -36,8 +37,9 @@
                             die("Connection failed: " . mysqli_connect_error() );
                         }
                         echo "Connected successfully";
+                        mysqli_select_db($conn,"demo");
 
-                        $sql = "DELETE FROM /*table name*/ WHERE /*vehicle number col*/=".$updt;
+                        $sql = "DELETE FROM useroffence WHERE vehicleno=".$updt;
 
                         if (mysqli_query($conn, $sql)) 
                         {
@@ -62,8 +64,31 @@
     
 ?>
 
+     <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a href="Homepage.html" class="navbar-brand">Police Database</a>
+            </div>
 
+            <div>
+                <ul class="nav navbar-nav" style="font-size: 15px">
+                    <li><a>Cop logged in</a></li>
+                </ul>
+
+            </div>
+            <div>
+                <ul class="nav navbar-nav" style="font-size: 15px">
+                    <li><a href="Crimeinput.php">Crime input</a></li>
+                </ul>
+
+            </div>
+            <div class="nav navbar-nav" style="float: right">
+                <a href="logout.php" class="btn btn-default">Log out</a>
+            </div>   
+        </div>
+    </nav>
     <div class="col-xs-12" style="height:60px;"></div>
+                <center><h2>Delete record</h2><br><br>
 
     <div class="userForm center-block">
       <form action= "<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method = "POST">
@@ -75,7 +100,7 @@
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
     </div>
-
+</center>
 </body>
 </html>
-
+<!--Final-->

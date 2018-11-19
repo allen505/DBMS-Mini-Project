@@ -27,7 +27,7 @@ session_start();
                     if(chk_vno($updt))
                     {
                         $_SESSION["vhn"] = $updt ;
-                        header('Location: #civilian page');
+                        header('Location: view.php');
                     }
                     else
                     {
@@ -68,22 +68,18 @@ session_start();
 
             <div>
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">User Login</a></li>
+                    <li class="active"><a href="#">Civilian</a></li>
                 </ul>
                 <ul class="nav navbar-nav">
-                    <li><a href="registration.html">Admin Log in</a></li>
-                </ul>
-
-                <ul class="nav navbar-nav">
-                    <li><a href="CopLogin.html">Cop Login</a></li>
+                    <li><a href="login.php">Login</a></li>
                 </ul>
 
                 <ul class="nav navbar-nav">
-                    <li><a href="#">About</a></li>
+                    <li><a href="About.html">About</a></li>
                 </ul>
 
                 <ul class="nav navbar-nav">
-                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="Contact.html">Contact Us</a></li>
                 </ul>
 
             </div>
@@ -105,3 +101,4 @@ session_start();
 
 </body>
 </html>
+<!--Final-->

@@ -3,7 +3,24 @@
 	2. Offence done
 	3. Place of offence
 	4. Fine to be paid
+	log off function here:
+
+
+<?php
+	//function logoff()
+	{
+		//session_destroy();
+		//header('Location: ');
+	}
+
+
+
+?>
+<center><button class="btn btn-default" action = "<?php //echo htmlspecialchars(logoff());?>" >Log out</button></center>   
 This page comes in when the cop registration is successfull-->
+<?php
+ session_start();
+ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,10 +41,14 @@ This page comes in when the cop registration is successfull-->
         if (!$conn) {
             die("Connection failed: " . mysqli_connect_error());
         }
-        echo "Connected successfully";
+        //echo "Connected successfully";
+        mysqli_select_db($conn,"demo");
 
 		$vnoerr = $placeerr = $offerr = $finerr = "";
-		$vno = $place = $off = $fin = "";
+	    $vno = "";
+		$place = "";
+	    $off = "";
+		$fin = "";
 		$boo = true;
 		//not null check before submit
 
@@ -43,7 +64,7 @@ This page comes in when the cop registration is successfull-->
             }
             else{
                 $vno=chngIP($_POST["number"]);
-                echo $vno;
+                //echo $vno;
             }//vehicle no
 
 
@@ -56,7 +77,7 @@ This page comes in when the cop registration is successfull-->
             }
             else{
                 $place=chngIP($_POST["place"]);
-                echo $place;
+                //echo $place;
             }//Place
 
             if(empty($_POST["offence"]))
@@ -68,7 +89,7 @@ This page comes in when the cop registration is successfull-->
             }
             else{
                 $off=chngIP($_POST["offence"]);
-                echo $off;
+                //echo $off;
             }//offence
 
             if(empty($_POST["fine"]))
@@ -80,12 +101,12 @@ This page comes in when the cop registration is successfull-->
             }
             else{
                 $fin=chngIP($_POST["fine"]);
-                echo $fin;
+                //echo $fin;
             }//vehicle   
             if ($boo) {
             	$boo = chk_vno($vno);
             	if ($boo) {
-            		echo("All correct");
+            		//echo("All correct");
             		send_data();//will send data to form if all is correct
             	}
             	else
@@ -124,8 +145,15 @@ This page comes in when the cop registration is successfull-->
 
 		function send_data()
 		{
-			$qury = "UPDATE /*table_name*/ SET /*column name for vehile number*/ = $GLOBALS["vno"], /*column name for offence*/ = $GLOBALS["off"], /*column name for Place*/ = $GLOBALS["place"], /*column name for Fine*/ = $GLOBALS["fin"]";
-			if (mysqli_query($GLOBALS["conn"]}, $qury))
+			//$qury = "UPDATE useroffence SET vehicleno =". $GLOBALS["vno"].", offence =". $GLOBALS["off"].", place =". $GLOBALS["place"].", paid = ". $GLOBALS["fin"];
+			$off1 = $GLOBALS["off"];
+			$fin1 = $GLOBALS["fin"];
+			$vno1 = $GLOBALS["vno"];
+			$place1 = $GLOBALS["place"];
+			//echo $off1;
+			$qury = "INSERT INTO useroffence (offence, paid, vehicleno, place) VALUES ('$off1', $fin1, '$vno1', '$place1')";
+			//$qury = "INSERT INTO useroffence (vehicleno, offence, place, paid) VALUES ('vno', 'off', 'place', 'fin')";
+			if (mysqli_query($GLOBALS["conn"], $qury))
 			 {
 			    echo "Record updated successfully";
 			 }
@@ -141,7 +169,7 @@ This page comes in when the cop registration is successfull-->
 
 
 	mysqli_close($conn);
-	?>
+?>
 
  <nav class="navbar navbar-default">
         <div class="container-fluid">
@@ -155,13 +183,14 @@ This page comes in when the cop registration is successfull-->
                 </ul>
 
             </div>
-	 <div class="nav navbar-nav" style="float: right">
-            	<a href="Homepage.html"><button class="btn btn-default">Log out</button></a>
-            </div>
+			<div class="nav navbar-nav" style="float: right">
+                <a href="logout.php" class="btn btn-default">Log out</a>
+            </div>	 
         </div>
     </nav>
 <div class="basic">
 	<div class="crime_input">
+	<center><h1>Crime input</h1></center><br><br>
 	<center><form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method = "POST" class="crime_form">
 	<table class="crime" align="center" >
 		<tr>
@@ -180,18 +209,26 @@ This page comes in when the cop registration is successfull-->
 		</tr>
 		
 		<tr id="err">
-			<td><span class="error">* <?php echo $vnoerr; ?> </span></td>
-			<td><span class="error">* <?php echo $placeerr; ?> </span></td>
-			<td><span class="error">* <?php echo $offerr; ?> </span></td>
-			<td><span class="error">* <?php echo $finerr; ?> </span></td>
+			<td><span class="error"><?php echo $vnoerr; ?> </span></td>
+			<td><span class="error"><?php echo $placeerr; ?> </span></td>
+			<td><span class="error"><?php echo $offerr; ?> </span></td>
+			<td><span class="error"><?php echo $finerr; ?> </span></td>
 
 		</tr>
 	</table>
 
-	<input type="submit" name="submit" align="center" onsubmit="" class="btn btn-default">
-	</form></center>
-</div>
-	<a href="delpge.php" class="btn btn-info pull-right">Delete a record</a>
+	<input type="submit" name="submit" align="center" onsubmit="" class="btn btn-default"><br><br>
+    <div class="alert alert-success">
+        <strong>Success!</strong> The record has been stored!
+    </div>
 
+    <div class="alert alert-danger">
+        <strong>Error!</strong> The record is not saved.
+    </div>
+	</form>
+	<a href="delpge.php" class="btn btn-default">Delete a record</a>
+</center>
+</div>
 </body>
 </html>
+<!-- FInal-->
