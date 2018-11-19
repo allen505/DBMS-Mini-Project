@@ -191,5 +191,7 @@ This page comes in when the cop registration is successfull-->
 	<input type="submit" name="submit" align="center" onsubmit="" class="btn btn-default">
 	</form></center>
 </div>
+	<a href="delpge.php" class="btn btn-info pull-right">Delete a record</a>
+
 </body>
 </html>
