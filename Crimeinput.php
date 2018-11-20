@@ -50,6 +50,9 @@ This page comes in when the cop registration is successfull-->
 	    $off = "";
 		$fin = "";
 		$boo = true;
+		$succmsg = "";//successful updation
+		$succerr = "";//no sucsess updating
+		
 		//not null check before submit
 
 		if($_SERVER["REQUEST_METHOD"] == "POST")
@@ -155,11 +158,12 @@ This page comes in when the cop registration is successfull-->
 			//$qury = "INSERT INTO useroffence (vehicleno, offence, place, paid) VALUES ('vno', 'off', 'place', 'fin')";
 			if (mysqli_query($GLOBALS["conn"], $qury))
 			 {
-			    echo "Record updated successfully";
+			    $GLOBALS["succmsg"] = "<strong>Success!</strong> The record has been stored!";
 			 }
 			 else 
 			 {
-			    echo "Error updating record: " . mysqli_error($GLOBALS["conn"]);
+			    $GLOBALS["succerr"]= "<strong>Error!</strong> The record is not saved.";
+				    
 			 }
 
 		}//end of send data
@@ -218,11 +222,11 @@ This page comes in when the cop registration is successfull-->
 
 	<input type="submit" name="submit" align="center" onsubmit="" class="btn btn-default"><br><br>
     <div class="alert alert-success">
-        <strong>Success!</strong> The record has been stored!
+        <?php echo $succmsg; ?>
     </div>
 
     <div class="alert alert-danger">
-        <strong>Error!</strong> The record is not saved.
+	<?php echo $succerr; ?>
     </div>
 	</form>
 	<a href="delpge.php" class="btn btn-default">Delete a record</a>
